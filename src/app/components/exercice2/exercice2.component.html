@@ -1,0 +1,52 @@
+<app-header [title]="'Exercice 2'"></app-header>
+<!--img class="exerice" src="/assets/thinking.jpg" /-->
+
+
+
+<ul id="menu">
+    <li><a href="#">Home</a></li>
+    <li>
+        <a href="#">Categories</a>
+        <ul>
+            <li><a href="#">Drama</a></li>
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Science fiction</a></li>
+            <li><a href="#">Horreur</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Series</a></li>
+    <li><a href="#">Films</a></li>
+    
+    <li><a href="#">Nouveau</a></li>
+    <li id="c2"><input class="champ" type="text" value="Search..."/></li>
+    <li id="c3" title="Rechercher" >  Search </li>
+
+</ul>
+
+<div class="loader" *ngIf="loading">
+    Loading ...
+</div>
+
+    <div  class="divprincipal">
+        <img src="/assets/movie.png" class="im2"  />
+            <div class="logo">
+                    <h2>Film</h2>   <h2 class="h22">Complet </h2>
+            </div> 
+        <div class="myCarousel">
+
+            <owl-carousel [options]="SlideOptions" [items]="data.results" [carouselClasses]="['owl-theme', 'sliding']">
+                <div class="item" *ngFor="let image of data.results;let i = index">
+                    <div class="example">
+                            <img src="https://image.tmdb.org/t/p/w185/{{image.poster_path}}"
+                            width= "185" height="280"
+                            alt={{image.overview}} title={{image.overview}} />
+                            <p class="titre">{{image.title}}</p>
+                            <div class="content"> <div class="text">{{image.overview}}</div>
+                            </div>
+                     </div>
+                </div>
+            </owl-carousel>
+            
+        </div>
+    </div>
+
